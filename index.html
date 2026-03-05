@@ -1,8 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Devil's Casino</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #0d0020;
+      color: #f0d080;
+      font-family: 'Georgia', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: gold; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===== MODAL ===== */
+    #entrance-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #modal-box {
+      background: #1a0a2e;
+      border: 3px solid gold;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+    }
+
+    .modal-title {
+      font-size: 1.6rem;
+      color: gold;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    .modal-sub {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+
+    #name-input {
+      display: block;
+      width: 80%;
+      margin: 0 auto 1.2rem;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid gold;
+      color: white;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 0.4rem;
+      outline: none;
+    }
+
+    #modal-box button {
+      background: gold;
+      color: #1a0a2e;
+      border: none;
+      padding: 0.7rem 2.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+
+    #modal-box button:hover { background: #ffd000; }
+
     /* ===== HEADER ===== */
     #site-header {
       background: linear-gradient(180deg, #1a0a2e 0%, #0d0020 100%);
       border-bottom: 2px solid gold;
-      /* Делаем шапку гибкой и центрируем всё внутри по вертикальной оси */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -12,7 +93,7 @@
     #header-inner {
       text-align: center;
       padding: 1.5rem 2rem 0;
-      max-width: 960px; /* Ограничиваем ширину контента, чтобы он был по центру */
+      max-width: 960px;
       width: 100%;
     }
 
@@ -21,7 +102,6 @@
       letter-spacing: 4px;
       color: gold;
       margin-bottom: 0.4rem;
-      /* Дополнительное центрирование логотипа и кубиков */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -45,7 +125,7 @@
       flex-wrap: wrap;
       padding: 0.8rem 0;
       border-top: 1px solid #5a3a7a;
-      max-width: 960px; /* Навигация тоже ограничена по ширине и стоит по центру */
+      max-width: 960px;
       width: 100%;
     }
 
@@ -58,3 +138,127 @@
     }
 
     #main-nav a:hover { color: white; text-decoration: none; }
+
+    /* ===== MAIN ===== */
+    #page-content {
+      flex: 1;
+      padding: 3rem 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* ===== FOOTER ===== */
+    #site-footer {
+      border-top: 2px solid gold;
+      background: #1a0a2e;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      overflow: hidden;
+    }
+
+    .footer-ticker {
+      color: #cca0ff;
+      white-space: nowrap;
+      display: inline-block;
+      animation: ticker 25s linear infinite;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(100vw); }
+      to   { transform: translateX(-100%); }
+    }
+
+    #footer-copy { color: #888; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== MODAL ===================== -->
+  <div id="entrance-modal">
+    <div id="modal-box">
+      <p class="modal-title">Добро пожаловать, незнакомец.</p>
+      <p class="modal-sub">Прежде чем войти... как тебя зовут?</p>
+      <input type="text" id="name-input" placeholder="Твоё имя..." maxlength="30" />
+      <button onclick="enterCasino()">✒ Подписать и войти</button>
+    </div>
+  </div>
+
+  <!-- ===================== HEADER ===================== -->
+  <header id="site-header">
+    <div id="header-inner">
+      <div id="logo">
+        <span class="logo-dice">⚄</span>
+        <span class="logo-text">The Devil's Casino</span>
+        <span class="logo-dice">⚄</span>
+      </div>
+      <p id="header-tagline">
+        С возвращением, <span class="guest-name">незнакомец</span>. Ставки уже сделаны.
+      </p>
+    </div>
+
+    <nav id="main-nav">
+      <a href="index.html">🃏 Главная</a>
+      <a href="events.html">🎷 События</a>
+      <a href="staff.html">👑 Персонал</a>
+      <a href="contract.html">📜 Контракт</a>
+      <a href="contact.html">✉ Контакты</a>
+    </nav>
+  </header>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main id="page-content">
+
+    <!-- ВСТАВЛЯЙ КОНТЕНТ СТРАНИЦЫ СЮДА -->
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer id="site-footer">
+    <p>
+      <span class="footer-ticker">
+        🎲 Сегодня: живой джаз с Tipsy Troop &nbsp;·&nbsp;
+        🃏 Ночь Pirouletta — 22:00 &nbsp;·&nbsp;
+        ⚠ Заведение всегда в выигрыше &nbsp;·&nbsp;
+        📜 Твоя душа — наше обеспечение &nbsp;·&nbsp;
+        🎰 Турнир счастливой руки — в полночь пятницы &nbsp;·&nbsp;
+      </span>
+    </p>
+    <p id="footer-copy">
+      © The Devil's Casino &nbsp;·&nbsp; Inkwell Hell, Isle IV &nbsp;·&nbsp;
+      Управляющий: <em>King Dice</em>
+    </p>
+  </footer>
+
+  <!-- ===================== SCRIPT ===================== -->
+  <script>
+    window.addEventListener('load', () => {
+      const saved = localStorage.getItem('guestName');
+      if (saved) {
+        document.getElementById('entrance-modal').style.display = 'none';
+        insertName(saved);
+      }
+    });
+
+    function enterCasino() {
+      const name = document.getElementById('name-input').value.trim();
+      if (!name) return;
+      localStorage.setItem('guestName', name);
+      document.getElementById('entrance-modal').style.display = 'none';
+      insertName(name);
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') enterCasino();
+    });
+
+    function insertName(name) {
+      document.querySelectorAll('.guest-name').forEach(el => {
+        el.textContent = name;
+      });
+    }
+  </script>
+
+</body>
+</html>
