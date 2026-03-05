@@ -3,17 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Devil's Casino · Персонал и VIP</title>
+  <title>The SS Casino · Персонал и VIP</title>
+
+  <!-- Те же шрифты, что в коде 1 -->
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background-color: #0d0020;
       color: #f0d080;
-      font-family: 'Georgia', serif;
+      font-family: 'Zen Antique Soft', serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+
+    :lang(en), .en {
+      font-family: 'Limelight', cursive;
+    }
+
+    :lang(ru), .ru {
+      font-family: 'Zen Antique Soft', serif;
     }
 
     a { color: gold; text-decoration: none; }
@@ -79,7 +91,7 @@
 
     #modal-box button:hover { background: #ffd000; }
 
-    /* ===== HEADER ===== */
+    /* ===== HEADER (как в коде 1) ===== */
     #site-header {
       background: linear-gradient(180deg, #1a0a2e 0%, #0d0020 100%);
       border-bottom: 2px solid gold;
@@ -107,7 +119,8 @@
     }
 
     .logo-dice { font-size: 1.5rem; margin: 0 0.5rem; }
-    .logo-text { font-size: 2rem; }
+
+    .logo-text.en { font-size: 2rem; }
 
     #header-tagline {
       color: #cca0ff;
@@ -121,7 +134,7 @@
       justify-content: center;
       gap: 2rem;
       flex-wrap: wrap;
-      padding: 0.8rem 0 1rem;
+      padding: 0.8rem 0;
       border-top: 1px solid #5a3a7a;
       max-width: 960px;
       width: 100%;
@@ -137,6 +150,7 @@
 
     #main-nav a:hover { color: white; text-decoration: none; }
 
+    /* подсветка активной ссылки Персонал */
     #main-nav a[href="staff.html"] {
       border-bottom: 2px solid gold;
       padding-bottom: 0.2rem;
@@ -297,7 +311,7 @@
       color: #b8860b;
     }
 
-    /* ===== FOOTER ===== */
+    /* ===== FOOTER (можно поменять на стиль index.html, если захочешь) ===== */
     #site-footer {
       border-top: 2px solid gold;
       background: #1a0a2e;
@@ -332,32 +346,32 @@
   <!-- МОДАЛЬНОЕ ОКНО -->
   <div id="entrance-modal">
     <div id="modal-box">
-      <p class="modal-title">Добро пожаловать, незнакомец.</p>
-      <p class="modal-sub">Прежде чем войти... как тебя зовут?</p>
+      <p class="modal-title ru">Добро пожаловать, незнакомец.</p>
+      <p class="modal-sub ru">Прежде чем войти... как тебя зовут?</p>
       <input type="text" id="name-input" placeholder="Твоё имя..." maxlength="30" />
-      <button onclick="enterCasino()">✒ Подписать и войти</button>
+      <button onclick="enterCasino()" class="ru">✒ Подписать и войти</button>
     </div>
   </div>
 
-  <!-- ШАПКА -->
+  <!-- ШАПКА как в коде 1 -->
   <header id="site-header">
     <div id="header-inner">
       <div id="logo">
         <span class="logo-dice">⚄</span>
-        <span class="logo-text">The Devil's Casino</span>
+        <span class="logo-text en" lang="en">The Solenaya Sushka Casino</span>
         <span class="logo-dice">⚄</span>
       </div>
-      <p id="header-tagline">
-        Доска персонала и VIP для гостя <span class="guest-name">незнакомец</span>.
+      <p id="header-tagline" class="ru">
+        Доска персонала и VIP для гостя <span class="guest-name ru">незнакомец</span>.
       </p>
     </div>
 
     <nav id="main-nav">
-      <a href="index.html">🃏 Главная</a>
-      <a href="events.html">🎷 События</a>
-      <a href="staff.html">👑 Персонал</a>
-      <a href="contract.html">📜 Контракт</a>
-      <a href="contact.html">✉ Контакты</a>
+      <a href="index.html" class="ru">⚖️ Главная</a>
+      <a href="events.html" class="ru">🎷 События</a>
+      <a href="staff.html" class="ru">👑 Персонал</a>
+      <a href="contract.html" class="ru">📜 Контракт</a>
+      <a href="contact.html" class="ru">🔔 Контакты</a>
     </nav>
   </header>
 
@@ -366,36 +380,33 @@
     <section class="board-wrapper">
       <div class="board-pin"></div>
 
-      <h1 class="board-title">ДОСКА ПЕРСОНАЛА И VIP</h1>
-      <p class="board-subtitle">
+      <h1 class="board-title ru">ДОСКА ПЕРСОНАЛА И VIP</h1>
+      <p class="board-subtitle ru">
         Прикреплённые карточки проверенного персонала, сомнительных союзников и особо везучих душ.
       </p>
 
       <div class="cards-grid">
 
-        <!-- King Dice -->
-        <article class="card">
+        <article class="card ru">
           <div class="card-header">
             <div class="card-avatar">🎲</div>
             <div>
-              <div class="card-title">King Dice</div>
-              <div class="card-role">Управляющий казино · Правая рука Дьявола</div>
+              <div class="card-title">Сэд</div>
+              <div class="card-role">Управляющая казино · Правая рука Славы</div>
             </div>
           </div>
           <p class="card-body">
             Гладкий голос, острый глаз и список всех долгов в этом доме.
-            Если твоя удача закончилась — он узнает первым.
+            Если твоя удача закончилась - она узнает первой.
           </p>
-          <p class="card-tagline">«Ну что, поднимем ставки?»</p>
           <span class="card-label">ПЕРСОНАЛ</span>
         </article>
 
-        <!-- Tipsy Troop -->
-        <article class="card">
+        <article class="card ru">
           <div class="card-header">
             <div class="card-avatar">🍸</div>
             <div>
-              <div class="card-title">Tipsy Troop</div>
+              <div class=>Труппа Типси</div>
               <div class="card-role">Барный лоундж-трио</div>
             </div>
           </div>
@@ -403,33 +414,28 @@
             Живой коктейль из трёх проблем. Подают напитки, хаос
             и лёгкую амнезию до самого рассвета.
           </p>
-          <p class="card-tagline">«Ещё по одной? Всё равно не вспомнишь.»</p>
           <span class="card-label">ПЕРСОНАЛ</span>
         </article>
 
-        <!-- Pirouletta -->
-        <article class="card">
+        <article class="card ru">
           <div class="card-header">
             <div class="card-avatar">🎡</div>
             <div>
-              <div class="card-title">Pirouletta</div>
+              <div class="card-title"Пируллета</div>
               <div class="card-role">Рулеточная танцовщица</div>
             </div>
           </div>
           <p class="card-body">
-            Вращается по залу как заряженное колесо. Гости не понимают,
-            что сильнее кружит голову — шансы или её выход.
+            Вращается по залу как заряженное колесо. Что сильнее кружит голову: шансы или её выход?
           </p>
-          <p class="card-tagline">«Подойди поближе, милый. Посмотрим, на чём остановится.»</p>
           <span class="card-label">ПЕРСОНАЛ</span>
         </article>
 
-        <!-- Mangosteen -->
-        <article class="card">
+        <article class="card ru">
           <div class="card-header">
             <div class="card-avatar">🎱</div>
             <div>
-              <div class="card-title">Mangosteen</div>
+              <div class="card-title">Мангусти</div>
               <div class="card-role">Надзиратель бильярда</div>
             </div>
           </div>
@@ -437,16 +443,14 @@
             Парит над столами и молча оценивает каждый удар.
             Никто ещё не перебил его идеальную разбивку.
           </p>
-          <p class="card-tagline">«Восемь в чёрную… и в твою судьбу.»</p>
           <span class="card-label">ПЕРСОНАЛ</span>
         </article>
 
-        <!-- VIP: Devil -->
-        <article class="card card--vip">
+        <article class="card card--vip ru">
           <div class="card-header">
-            <div class="card-avatar">😈</div>
+            <div class="card-avatar">👑</div>
             <div>
-              <div class="card-title">The Devil</div>
+              <div class="card-title"Слава</div>
               <div class="card-role">Владелец · Вечный VIP</div>
             </div>
           </div>
@@ -454,22 +458,19 @@
             Принадлежат ему здание, столы, фишки… и большая часть душ на этой доске.
             Появляется без предупреждения, уходит с процентами.
           </p>
-          <p class="card-tagline">«Рад иметь с тобой дело.»</p>
           <span class="card-label card-label--vip">VIP</span>
         </article>
 
-        <!-- VIP: Гость -->
-        <article class="card card--vip">
+        <article class="card card--vip ru">
           <div class="card-header">
             <div class="card-avatar">⭐</div>
             <div>
-              <div class="card-title"><span class="guest-name">Таинственный гость</span></div>
+              <div class="card-title"><span class="guest-name ru">Таинственный гость</span></div>
               <div class="card-role">Хайроллер · Душа на хранении</div>
             </div>
           </div>
           <p class="card-body">
-            Недавно прибыл и играет слишком удачно. За ним следит каждый крупье,
-            а имя шепчут в каждом подсобном помещении.
+            Недавно прибыл и играет слишком удачно.
           </p>
           <p class="card-tagline">«Любимчики заведения никогда не уходят с пустыми руками.»</p>
           <span class="card-label card-label--vip">VIP</span>
@@ -482,17 +483,16 @@
   <!-- ПОДВАЛ -->
   <footer id="site-footer">
     <p>
-      <span class="footer-ticker">
-        🎲 Обязательная планёрка персонала в полночь · 👑 King Dice оставляет за собой все права ·
+      <span class="footer-ticker ru">
+        🎲 Обязательная планёрка персонала в полночь · 👑 Сэд оставляет за собой все права ·
         😈 VIP-души пересчитываются еженедельно · 📜 Потерянные контракты возврату не подлежат ·
       </span>
     </p>
-    <p id="footer-copy">
-      © The Devil's Casino · Inkwell Hell, Isle IV · Управляющий: <em>King Dice</em>
+    <p id="footer-copy" class="ru">
+      © The SS Casino · Район Пена и Сливки, улица Веселый Вечер · Управляющий: <em>Сэд<em>
     </p>
   </footer>
 
-  <!-- СКРИПТ -->
   <script>
     window.addEventListener('load', () => {
       const saved = localStorage.getItem('guestName');
