@@ -1,66 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Devil's Casino</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-</head>
-<body>
+    /* ===== HEADER ===== */
+    #site-header {
+      background: linear-gradient(180deg, #1a0a2e 0%, #0d0020 100%);
+      border-bottom: 2px solid gold;
+      /* Делаем шапку гибкой и центрируем всё внутри по вертикальной оси */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
 
-  <!-- ===================== MODAL: ВХОД ===================== -->
-  <div id="entrance-modal">
-    <div id="modal-box">
-      <p class="modal-title">Welcome, stranger.</p>
-      <p class="modal-sub">Before you enter... what's your name?</p>
-      <input type="text" id="name-input" placeholder="Your name..." maxlength="30" />
-      <button onclick="enterCasino()">✒ Sign &amp; Enter</button>
-    </div>
-  </div>
+    #header-inner {
+      text-align: center;
+      padding: 1.5rem 2rem 0;
+      max-width: 960px; /* Ограничиваем ширину контента, чтобы он был по центру */
+      width: 100%;
+    }
 
-  <!-- ===================== HEADER ===================== -->
-  <header id="site-header">
-    <div id="header-inner">
-      <div id="logo">
-        <span class="logo-dice">⚄</span>
-        <span class="logo-text">The Devil's Casino</span>
-        <span class="logo-dice">⚄</span>
-      </div>
-      <p id="header-tagline">
-        Welcome back, <span class="guest-name">stranger</span>. All bets are off.
-      </p>
-    </div>
+    #logo {
+      font-size: 2rem;
+      letter-spacing: 4px;
+      color: gold;
+      margin-bottom: 0.4rem;
+      /* Дополнительное центрирование логотипа и кубиков */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-    <nav id="main-nav">
-      <a href="index.html">🃏 Home</a>
-      <a href="events.html">🎷 Events</a>
-      <a href="staff.html">👑 Staff</a>
-      <a href="contract.html">📜 Your Contract</a>
-      <a href="contact.html">✉ Contact</a>
-    </nav>
-  </header>
+    .logo-dice { font-size: 1.5rem; margin: 0 0.5rem; }
+    .logo-text { font-size: 2rem; }
 
-  <!-- ===================== MAIN CONTENT ===================== -->
-  <main id="page-content">
+    #header-tagline {
+      color: #cca0ff;
+      font-style: italic;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
 
-    <!-- ВСТАВЛЯЙ КОНТЕНТ СТРАНИЦЫ СЮДА -->
+    /* ===== NAV ===== */
+    #main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      padding: 0.8rem 0;
+      border-top: 1px solid #5a3a7a;
+      max-width: 960px; /* Навигация тоже ограничена по ширине и стоит по центру */
+      width: 100%;
+    }
 
-  </main>
+    #main-nav a {
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: gold;
+      transition: color 0.2s;
+    }
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer id="site-footer">
-    <p class="footer-ticker">
-      🎲 Tonight: Live Jazz with The Tipsy Troop &nbsp;·&nbsp;
-      🃏 Pirouletta's Dance Night — 10PM &nbsp;·&nbsp;
-      ⚠ The House always wins. &nbsp;·&nbsp;
-      📜 Your soul is our collateral. &nbsp;·&nbsp;
-    </p>
-    <p id="footer-copy">
-      © The Devil's Casino · Inkwell Hell, Isle IV ·
-      Managed by <em>King Dice</em>
-    </p>
-  </footer>
-
-</body>
-</html>
+    #main-nav a:hover { color: white; text-decoration: none; }
