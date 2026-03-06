@@ -304,21 +304,40 @@
     </p>
   </footer>
 
-    <script>
-    // Твои старые функции для имени и модального окна оставляем как есть
+  <!-- ===================== SCRIPT ===================== -->
+  <script>
     window.addEventListener('load', () => {
       const saved = localStorage.getItem('guestName');
       if (saved) {
-        document.getElementById('entrance-modal').style.display = 'none';
+        const modal = document.getElementById('entrance-modal');
+        if (modal) modal.style.display = 'none';
         insertName(saved);
       }
     });
 
     function enterCasino() {
-      const name = document.getElementById('name-input').value.trim();
+      const input = document.getElementById('name-input');
+      if (!input) return;
+      const name = input.value.trim();
       if (!name) return;
+
+      // Твой URL от Google Apps Script
+      const googleScriptURL = 'https://script.google.com/macros/s/AKfycbyt7vHpA_qyqN0aTCqJ-99xgtITDUbwoDm_2PWK10VZwvy_VQ9Ue9qHvqFFEl5E8WX0/exec';
+
+      // Отправляем данные в Гугл Таблицу "в фоне"
+      fetch(googleScriptURL, {
+        method: 'POST',
+        mode: 'no-cors', // Обязательно для Google Scripts, чтобы браузер не блокировал запрос
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: name })
+      }).catch(error => console.error('Ошибка записи души:', error));
+
+      // Сохраняем локально и пускаем гостя на сайт мгновенно
       localStorage.setItem('guestName', name);
-      document.getElementById('entrance-modal').style.display = 'none';
+      const modal = document.getElementById('entrance-modal');
+      if (modal) modal.style.display = 'none';
       insertName(name);
     }
 
@@ -334,17 +353,11 @@
 
     // ================= НОВЫЙ КОД ДЛЯ ПАРАЛЛАКСА ФОНА =================
     window.addEventListener('scroll', () => {
-      // Получаем, насколько пикселей страница прокручена вниз
       const scrollPosition = window.scrollY;
-      
-      // Коэффициент скорости (0.3 означает, что фон двигается на 30% от скорости скролла)
-      // Чем меньше число, тем медленнее фон ползет вверх.
       const speed = 0.3; 
-      
-      // Сдвигаем фон по оси Y
       document.body.style.backgroundPosition = `center ${scrollPosition * speed}px`;
     });
   </script>
-
 </body>
+
 </html>
