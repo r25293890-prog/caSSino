@@ -306,7 +306,15 @@
 
   <!-- ===================== SCRIPT ===================== -->
   <script>
-    
+    window.addEventListener('load', () => {
+      const saved = localStorage.getItem('guestName');
+      if (saved) {
+        const modal = document.getElementById('entrance-modal');
+        if (modal) modal.style.display = 'none';
+        insertName(saved);
+      }
+    });
+
     function enterCasino() {
       const input = document.getElementById('name-input');
       if (!input) return;
@@ -351,5 +359,6 @@
     });
   </script>
 </body>
+
 
 </html>
