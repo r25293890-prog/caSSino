@@ -330,7 +330,19 @@
       document.querySelectorAll('.guest-name').forEach(el => {
         el.textContent = name;
       });
-    }
+      
+    // ================= НОВЫЙ КОД ДЛЯ ПАРАЛЛАКСА ФОНА =================
+    window.addEventListener('scroll', () => {
+      // Получаем, насколько пикселей страница прокручена вниз
+      const scrollPosition = window.scrollY;
+      
+      // Коэффициент скорости (0.3 означает, что фон двигается на 30% от скорости скролла)
+      // Чем меньше число, тем медленнее фон ползет вверх.
+      const speed = 0.3; 
+      
+      // Сдвигаем фон по оси Y
+      document.body.style.backgroundPosition = `center ${scrollPosition * speed}px`;
+    });
   </script>
 
 </body>
