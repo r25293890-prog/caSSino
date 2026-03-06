@@ -204,6 +204,23 @@
   z-index: 2;
 }
 
+    .card::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+
+  background-image: url('https://i.ibb.co/27JV5vfV/3d934fd80b40e75bcf9d2f56ea7262cc-no-bg-preview-carve-photos.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
 
     .board-title {
       text-align: center;
