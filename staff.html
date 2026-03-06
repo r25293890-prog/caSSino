@@ -167,14 +167,24 @@
 
     /* ===== ДОСКА ===== */
     .board-wrapper {
-      background: radial-gradient(circle at top, #5a4226, #2b1a0f);
-      border: 8px solid #8b5a2b;
-      box-shadow: 0 0 40px rgba(0,0,0,0.7);
+      /* Сначала идёт полупрозрачный чёрно-коричневый слой (0.6 = 60% затемнения), 
+         а потом ссылка на твою текстуру пробки */
+      background: 
+        linear-gradient(rgba(43, 26, 15, 0.6), rgba(20, 10, 5, 0.8)),
+        url('https://i.ibb.co/B2Gd7y8b/background-texture-corkwood-198477-2.avif');
+      
+      background-size: cover;       /* Картинка растянется на всю доску */
+      background-position: center;  /* Центрируем картинку */
+      background-repeat: no-repeat; /* Запрещаем размножение картинки */
+      
+      border: 8px solid #8b5a2b;    /* Оставляем деревянную рамку */
+      box-shadow: 0 0 40px rgba(0,0,0,0.7), inset 0 0 30px rgba(0,0,0,0.8); /* Добавил внутреннюю тень (inset) для глубины */
       border-radius: 12px;
       padding: 2.5rem 2rem;
       position: relative;
       overflow: hidden;
     }
+
 
     .board-pin {
       position: absolute;
