@@ -304,8 +304,8 @@
     </p>
   </footer>
 
-  <!-- ===================== SCRIPT ===================== -->
-  <script>
+    <script>
+    // Твои старые функции для имени и модального окна оставляем как есть
     window.addEventListener('load', () => {
       const saved = localStorage.getItem('guestName');
       if (saved) {
@@ -330,7 +330,8 @@
       document.querySelectorAll('.guest-name').forEach(el => {
         el.textContent = name;
       });
-      
+    }
+
     // ================= НОВЫЙ КОД ДЛЯ ПАРАЛЛАКСА ФОНА =================
     window.addEventListener('scroll', () => {
       // Получаем, насколько пикселей страница прокручена вниз
