@@ -11,14 +11,23 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Базовый шрифт: русский — Zen Antique Soft, латиница переопределится ниже */
     body {
-      background-color: #0d0020;
+      /* Добавляем тёмный полупрозрачный слой и картинку на задний фон */
+      background: 
+        linear-gradient(rgba(13, 0, 32, 0.85), rgba(13, 0, 32, 0.85)),
+        url('https://i.ibb.co/1gyWMF3/952b9337d5738589b30d27cb2dc8b3ee.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* Фон остаётся на месте при прокрутке */
+      
       color: #f0d080;
       font-family: 'Zen Antique Soft', serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
+
 
     :lang(en), .en {
       font-family: 'Limelight', cursive;
